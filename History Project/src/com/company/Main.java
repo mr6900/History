@@ -5,13 +5,13 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        int a = 0;
-        int b = 0;
-        int c = 0;
+        double a = 0;
+        double b = 0;
+        double c = 0;
 	    String state ="";
-	    int Apop = 0;
-	    int Bpop = 0;
-	    int Cpop = 0;
+	    double Apop = 0;
+	    double Bpop = 0;
+	    double Cpop = 0;
 	    int pop = 0;
 	    int elecvote = 0;
 
@@ -67,13 +67,13 @@ public class Main {
         Scanner kboard = new Scanner(System.in);
         while (true) {
             System.out.println("Enter A's Popular Vote: ");
-            Apop = Integer.parseInt(kboard.nextLine());
+            Apop = Double.parseDouble(kboard.nextLine());
 
             System.out.println("Enter B's Popular Vote: ");
-            Bpop = Integer.parseInt(kboard.nextLine());
+            Bpop = Double.parseDouble(kboard.nextLine());
 
             System.out.println("Enter C's Popular Vote: ");
-            Cpop = Integer.parseInt(kboard.nextLine());
+            Cpop = Double.parseDouble(kboard.nextLine());
 
             while (true) {
                 System.out.println("Select your state: ");
@@ -88,9 +88,13 @@ public class Main {
 
             a = (Apop + Bpop + Cpop);
             a = Apop / a;
-           // a = a * elecvote;// Apop) * elecvote;
-            b = (Apop + Bpop + Cpop) / Bpop * elecvote;
-            c = elecvote * (a + b);
+            a =Math.round(a * elecvote);
+            b = (Apop + Bpop + Cpop);
+            b = Bpop /b;
+            b =Math.round(b *elecvote);
+            c = a + b;
+            c = Math.round(elecvote - c);
+
 
             System.out.println("A's total votes: " + a);
             System.out.println("B's total votes: " + b);
