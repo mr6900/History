@@ -66,15 +66,26 @@ public class Main {
 
         Scanner kboard = new Scanner(System.in);
         while (true) {
-            System.out.println("Enter A's Popular Vote: ");
-            Apop = Double.parseDouble(kboard.nextLine());
-
-            System.out.println("Enter B's Popular Vote: ");
-            Bpop = Double.parseDouble(kboard.nextLine());
-
-            System.out.println("Enter C's Popular Vote: ");
-            Cpop = Double.parseDouble(kboard.nextLine());
-
+            try {
+                System.out.println("Enter A's Popular Vote: ");
+                Apop = Double.parseDouble(kboard.nextLine());
+            }catch(NumberFormatException ex){
+                return;
+            }
+            try {
+                System.out.println("Enter B's Popular Vote: ");
+                Bpop = Double.parseDouble(kboard.nextLine());
+            }
+            catch(NumberFormatException ex){
+                return;
+            }
+            try {
+                System.out.println("Enter C's Popular Vote: ");
+                Cpop = Double.parseDouble(kboard.nextLine());
+            }
+            catch (NumberFormatException ex){
+                return;
+            }
             while (true) {
                 System.out.println("Select your state: ");
                 state = kboard.nextLine();
@@ -95,6 +106,19 @@ public class Main {
             c = a + b;
             c = Math.round(elecvote - c);
 
+            if(a > b){
+                if(a >c){
+                    System.out.println("A is the greatest");
+                }else{
+                    System.out.println("C is the greatest");
+                }
+            }else{
+                if(b > c){
+                    System.out.println("B is the greatest");
+                }else{
+                    System.out.println("C is the greatest");
+                }
+            }
 
             System.out.println("A's total votes: " + a);
             System.out.println("B's total votes: " + b);
